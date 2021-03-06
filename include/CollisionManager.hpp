@@ -4,5 +4,13 @@
 
 class CollisionManager {
 private:
-    std::vector<Object*> 
+    Object* src;
+    std::vector<Object*> others;
+
+public:
+    update() {
+        for(Object* dest : others) {
+            //if(dest->getX)
+        }
+    }
 }
