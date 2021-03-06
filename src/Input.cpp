@@ -3,7 +3,24 @@
 
 bool Input::arrow[4] = {};
 
+bool Input::canCheck = true;
+
+int Input::delay = 0;
+
+bool Input::checkDelayedPress(int keyCode) {
+    if(canCheck && arrow[keyCode]){
+        canCheck = false;
+        return true;
+    }
+    return false;
+}
+
 void Input::update(SDL_Event event) {
+    if(delay >= 2) {
+        delay = 0;
+        canCheck = true;
+    }
+    delay++;
     if(event.type == SDL_KEYDOWN) {
         switch(event.key.keysym.sym) {
             case SDLK_UP: arrow[INPUT_UP] = true; break;

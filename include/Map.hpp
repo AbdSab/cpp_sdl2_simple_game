@@ -2,6 +2,7 @@
 
 #include <SDL2/SDL.h>
 #include <vector>
+#include <fstream>
 #include <Object.hpp>
 
 #define ID_EMPTY 0
@@ -13,8 +14,9 @@
 **/
 class Map {
 private:
-    int data[5][5];
+    int data[20][15];
 public:
-    void loadMap(SDL_Renderer* _renderer);
+    void loadMap(const char* _path);
+    void renderMap(SDL_Renderer* _renderer);
     int getIdByPosition(int _x, int _y);
 };

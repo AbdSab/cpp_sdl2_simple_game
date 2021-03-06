@@ -1,16 +1,29 @@
 #include "Map.hpp"
-#include <vector>
-#include <Object.hpp>
-#include <Player.hpp>
-#include <Ground.hpp>
-#include <TextureManager.hpp>
-#include <ObjectManager.hpp>
+#include "Object.hpp"
+#include "Player.hpp"
+#include "Ground.hpp"
+#include "TextureManager.hpp"
+#include "ObjectManager.hpp"
 
-void Map::loadMap(SDL_Renderer* _renderer) {
-    int _data[5][5] = {{0,0,0,0,0}, {2,0,0,0,2}, {2,0,0,2,2}, {2,2,1,0,2}, {2,2,2,2,2}};
-    for(int i=0; i<5; i++){
-        for(int j=0; j<5; j++){
-            data[i][j] = _data[i][j];
+void Map::loadMap(const char* _path) {
+    std::ifstream file(_path);
+    std::string line;
+
+    int row = 0;
+    while(getline(file, line)) {
+        int lineSize = line.size();
+        for(int i=0; i<lineSize; i++) {
+            data[row][i] = line[i] - '0';
+        }
+        row++;
+    }
+
+    file.close();
+}
+
+void Map::renderMap(SDL_Renderer* _renderer) {
+    for(int i=0; i<20; i++){
+        for(int j=0; j<15; j++){
             switch(data[i][j]) {
                 case ID_PLAYER: {
                     SDL_Texture* texture = TextureManager::getTexture("player");

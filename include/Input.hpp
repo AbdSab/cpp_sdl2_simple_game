@@ -12,6 +12,9 @@
 
 class Input {
 public:
+    static int delay;
+    static bool canCheck;
     static bool arrow[4];
+    static bool checkDelayedPress(int keyCode);
     static void update(SDL_Event event);
 };

@@ -1,2 +1,2 @@
-#g++ -c src/*.cpp -std=c++14 -g -Wall -m64 -I include -I C:/SDL2/include && g++ *.o -o bin/debug/main -L C:/SDL2/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image && start bin/debug/main.exe
-g++ -c src/*.cpp -I include -I C:/SDL2/include && g++ *.o -o bin/debug/main -L C:/SDL2/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image && rm -f *.o && start bin/debug/main.exe
+g++ -c src/*.cpp -std=c++14 -g -Wall -m64 -I include -I C:/SDL2/include && g++ *.o -o bin/debug/main -L C:/SDL2/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image && start bin/debug/main.exe
+#g++ -c src/*.cpp -I include -I C:/SDL2/include && g++ *.o -o bin/debug/main -L C:/SDL2/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image && rm -f *.o && start bin/debug/main.exe
